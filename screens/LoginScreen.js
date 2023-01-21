@@ -1,9 +1,10 @@
-import { StyleSheet } from 'react-native';
-import AppNavigator from './navigation/AppNavigator';
+import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+export default function LoginScreen() {
   return (
-    <AppNavigator />
+    <View style={styles.container}>
+      <Text>Login Screen</Text>
+    </View>
   );
 }
 
