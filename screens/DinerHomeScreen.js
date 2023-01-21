@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 import SearchBar from 'react-native-dynamic-search-bar';
 
@@ -15,6 +15,15 @@ export default function DinerHomeScreen({ navigation }) {
             <View style={styles.container}>
                 <Text>Welcome to Diner Home</Text>
             </View>
+
+            <Button
+                title="Diner Purchase"
+                onPress={() => navigation.navigate('DinerPurchase')}
+            />
+            <Button
+                title="Diner Wallet"
+                onPress={() => navigation.navigate('DinerWallet')}
+            />
         </View>
     );
 }
