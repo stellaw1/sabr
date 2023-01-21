@@ -3,12 +3,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import BusinessHomeScreen from '../screens/BusinessHomeScreen';
 import LoginScreen from '../screens/LoginScreen';
+import SignupScreen from '../screens/SignupScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import DinerHomeScreen from '../screens/DinerHomeScreen';
 import DinerPurchaseScreen from '../screens/DinerPurchaseScreen';
 import DinerWalletScreen from '../screens/DinerWalletScreen';
 
-import { ThemeProvider, Button, createTheme } from '@rneui/themed';
+import { ThemeProvider, createTheme } from '@rneui/themed';
 
 const SabrTheme = createTheme({
   components: {
@@ -31,6 +32,7 @@ export default AppNavigator = () => {
                 <Stack.Navigator>
                     <Stack.Screen name="Welcome" component={WelcomeScreen} />
                     <Stack.Screen name="Login" component={LoginScreen} />
+                    <Stack.Screen name="Signup" component={SignupScreen} />
                     <Stack.Screen
                         name="BusinessHome"
                         component={BusinessHomeScreen}
