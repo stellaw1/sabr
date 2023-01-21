@@ -1,27 +1,44 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView,
+  ScrollView } from 'react-native';
 
 import { Button, Card } from '@rneui/themed';
 
 export default function DinerWalletScreen({ navigation }) {
     return (
       <View>
+      <ScrollView style={styles.scrollView}>
         <Card>
           <Card.Title>THE ONLY RESTAURANT</Card.Title>
           <Text>Location: 123 UBC Way</Text>
           <Text>Discount: 10%</Text>
           <View style={{position:"relative",alignItems:"center",margin:20}}>
             <Button>
-              $10
-            </Button>
-            <Button>
-              $20
-            </Button>
-            <Button>
-              $50
+              $43
             </Button>
           </View>
         </Card>
+        <Card>
+          <Card.Title>THE SECOND RESTAURANT</Card.Title>
+          <Text>Location: 69 UBC Way</Text>
+          <Text>Discount: 15%</Text>
+          <View style={{position:"relative",alignItems:"center",margin:20}}>
+            <Button>
+              $5
+            </Button>
+          </View>
+        </Card>
+        <Card>
+          <Card.Title>THE FAST RESTAURANT</Card.Title>
+          <Text>Location: 520 UBC Way</Text>
+          <Text>Discount: 5%</Text>
+          <View style={{position:"relative",alignItems:"center",margin:20}}>
+            <Button>
+              $30
+            </Button>
+          </View>
+        </Card>
+        </ScrollView>
       </View>
     );
 }
