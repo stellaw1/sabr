@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View, Button } from 'react-native';
 
-export default function HomeScreen() {
+export default function BusinessHomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>Home Screen</Text>
+      <Text>Welcome to Business Home</Text>
+      
     </View>
   );
 }
@@ -16,3 +18,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+

@@ -1,9 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View, Button } from 'react-native';
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>Login Screen</Text>
+      <Button
+        title="Business Login"
+        onPress={() => navigation.navigate("BusinessHome")}
+      />
+      <Button
+        title="Diner Login"
+        onPress={() => navigation.navigate("DinerHome")}
+      />
     </View>
   );
 }
@@ -16,3 +24,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+

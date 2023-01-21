@@ -1,14 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-export default function WelcomScreen({ navigation }) {
+export default function DinerHomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text>Welcome to savr</Text>
-      <Button
-        title="Go to Login"
-        onPress={() => navigation.navigate("Login")}
-      />
+      <Text>Welcome to Diner Home</Text>
+      
     </View>
   );
 }

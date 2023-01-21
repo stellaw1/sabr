@@ -1,0 +1,58 @@
+Arguments: 
+  /Users/davidw/.nvm/versions/node/v16.17.0/bin/node /opt/homebrew/bin/yarn add react-native-safe-area-view react-native-safe-area-contex
+
+PATH: 
+  /Users/davidw/.rbenv/shims:/Users/davidw/.pyenv/plugins/pyenv-virtualenv/shims:/Users/davidw/.pyenv/shims:/Users/davidw/.pyenv/bin:/Users/davidw/opt/anaconda3/condabin:/Users/davidw/.gem/ruby/3.1.2/bin:/Users/davidw/.rubies/ruby-3.1.2/lib/ruby/gems/3.1.0/bin:/Users/davidw/.rubies/ruby-3.1.2/bin:/opt/homebrew/opt/jpeg/bin:/Users/davidw/.nvm/versions/node/v16.17.0/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/davidw/.local/share/solana/install/active_release/bin:/opt/homebrew/opt/python@3.10/libexec/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/X11/bin:/Library/Apple/usr/bin:/Users/davidw/.cargo/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.17.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/react-native-safe-area-contex: Not found
+      at Request.params.callback [as _callback] (/opt/homebrew/lib/node_modules/yarn/lib/cli.js:66145:18)
+      at Request.self.callback (/opt/homebrew/lib/node_modules/yarn/lib/cli.js:140890:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (/opt/homebrew/lib/node_modules/yarn/lib/cli.js:141862:10)
+      at Request.emit (node:events:513:28)
+      at IncomingMessage.<anonymous> (/opt/homebrew/lib/node_modules/yarn/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:627:28)
+      at IncomingMessage.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1358:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "sabre",
+    "version": "1.0.0",
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web"
+    },
+    "dependencies": {
+      "@react-navigation/native": "^6.1.2",
+      "@react-navigation/native-stack": "^6.9.8",
+      "expo": "~47.0.12",
+      "expo-status-bar": "~1.4.2",
+      "react": "18.1.0",
+      "react-native": "0.70.5"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.12.9"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
