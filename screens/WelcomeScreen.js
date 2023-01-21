@@ -1,10 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
+import Logo from '../components/Logo';
+
 export default function WelcomScreen({ navigation }) {
     return (
         <View style={styles.container}>
-            <Text>Welcome to sabr</Text>
+            <Logo />
             <Button
                 title="Login"
                 onPress={() => navigation.navigate('Login')}
