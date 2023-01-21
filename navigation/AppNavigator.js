@@ -12,16 +12,15 @@ import DinerWalletScreen from '../screens/DinerWalletScreen';
 import { ThemeProvider, createTheme } from '@rneui/themed';
 
 const SabrTheme = createTheme({
-  components: {
-    Button: {
-      type: 'outline',
-      radius: 40,
-      buttonStyle: {width: 150},
-      containerStyle: {margin: 5},
-    },
-  },
+    components: {
+        Button: {
+            type: 'outline',
+            radius: 40,
+            buttonStyle: { width: 150 },
+            containerStyle: { margin: 5 }
+        }
+    }
 });
-
 
 const Stack = createNativeStackNavigator();
 
@@ -37,9 +36,18 @@ export default AppNavigator = () => {
                         name="BusinessHome"
                         component={BusinessHomeScreen}
                     />
-                    <Stack.Screen name="DinerHome" component={DinerHomeScreen} />
-                    <Stack.Screen name="DinerPurchase" component={DinerPurchaseScreen} />
-                    <Stack.Screen name="DinerWallet" component={DinerWalletScreen} />
+                    <Stack.Screen
+                        name="DinerHome"
+                        component={DinerHomeScreen}
+                    />
+                    <Stack.Screen
+                        name="DinerPurchase"
+                        component={DinerPurchaseScreen}
+                    />
+                    <Stack.Screen
+                        name="DinerWallet"
+                        component={DinerWalletScreen}
+                    />
                 </Stack.Navigator>
             </NavigationContainer>
         </ThemeProvider>
