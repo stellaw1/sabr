@@ -6,8 +6,12 @@ export default function WelcomScreen({ navigation }) {
         <View style={styles.container}>
             <Text>Welcome to sabr</Text>
             <Button
-                title="Go to Login"
+                title="Login"
                 onPress={() => navigation.navigate('Login')}
+            />
+            <Button
+                title="Signup"
+                onPress={() => navigation.navigate('Signup')}
             />
         </View>
     );
