@@ -1,5 +1,3 @@
-
-
 import { View, Text, StyleSheet, Dimensions, Image, ScrollView, useWindowDimensions } from "react-native"
 import React, {useState} from 'react'
 import Animated, {useSharedValue, useAnimatedStyle, useAnimatedScrollHandler, interpolate} from 'react-native-reanimated'

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
 
 import SearchBar from "react-native-dynamic-search-bar";
 import DinerCarousel from "../../components/DinerCarousel"
+import { Button } from '@rneui/themed';
 const data = [
   {
     image: require('../../assets/food1.jpeg')
@@ -35,6 +36,10 @@ export default function DinerHomeScreen({ navigation }) {
             onChangeText={(text) => console.log(text)}
           />
           </View>
+          <Button
+                title="Diner Wallet"
+                onPress={() => navigation.navigate('DinerWallet')}
+            />
           
           <View style={styles.labelBox}>
               <Text style={styles.label}>Up to 20% savings</Text>
@@ -43,18 +48,18 @@ export default function DinerHomeScreen({ navigation }) {
             <DinerCarousel data={data} navigation={navigation} /> 
           </View>
 
-          {/* <View style={styles.labelBox}>
+          <View style={styles.labelBox}>
               <Text style={styles.label}>Up to 15% savings</Text>
           </View>
           <View style={styles.container} >
-            <DinerCarousel data={data} /> 
+            <DinerCarousel data={data} navigation={navigation} /> 
           </View>
           <View style={styles.labelBox}>
               <Text style={styles.label}>Up to 10% savings</Text>
           </View>
           <View style={styles.container} >
-            <DinerCarousel data={data} /> 
-          </View> */}
+            <DinerCarousel data={data} navigation={navigation} /> 
+          </View>
           
           
           <View style={styles.titleBox}>
