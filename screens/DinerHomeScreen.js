@@ -1,9 +1,29 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
 
 import SearchBar from "react-native-dynamic-search-bar";
 import CarouselCards from "../components/CarouselCards"
 import CarouselCardItem from "../components/CarouselCardItem"
+import DinerCarousel from "../components/DinerCarousel"
+const data = [
+  {
+    image: require('../assets/food1.jpeg')
+  },
+  {
+    image: require('../assets/food2.jpeg')
+  },
+  {
+    image: require('../assets/food3.jpeg')
+  },
+  {
+    image: require('../assets/food4.jpeg')
+  },
+  {
+    image: require('../assets/food5.jpeg')
+  },
+
+]
+
 export default function DinerHomeScreen({ navigation }) {
     return (
       <View style={styles.container}>
@@ -12,7 +32,8 @@ export default function DinerHomeScreen({ navigation }) {
             onPress={() => alert("onPress")}
             onChangeText={(text) => console.log(text)}
           />
-
+          
+          <DinerCarousel data={data} /> 
           <View style={styles.container} >
               <Text>Welcome to Diner Home</Text>
           </View>
@@ -34,7 +55,7 @@ export default function DinerHomeScreen({ navigation }) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 3,
+        flex: 1,
         // backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
