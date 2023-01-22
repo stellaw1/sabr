@@ -1,48 +1,64 @@
 import React, { useState } from 'react';
-import {
-    StyleSheet,
-    View,
-    Text,
-    Switch
-} from 'react-native';
+import { StyleSheet, View, Text, Switch } from 'react-native';
 import { firebase } from '../config';
 import { Card, Input, Button } from '@rneui/themed';
 
 export default function SignupScreen({ navigation }) {
     const [isBusinessAccount, setIsBusinessAccount] = React.useState(false);
+
+    const [userName, setUserName] = useState('');
     const [userEmail, setUserEmail] = useState('');
     const [userPassword, setUserPassword] = useState('');
+
     const usersRef = firebase.firestore().collection('users');
+    const restaurantsRef = firebase.firestore().collection('restaurants');
 
     const addUser = () => {
-        if (userEmail && userEmail.length > 0) {
-            const timestamp = firebase.firestore.FieldValue.serverTimestamp();
-            const data = {
-                createdAt: timestamp,
-                email: userEmail,
-                password: userPassword
-            };
-            usersRef
-                .add(data)
-                .then(() => {
-                    setUserEmail('');
-                    setUserPassword('');
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        }
+        const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+        const data = {
+            createdAt: timestamp,
+            name: userName,
+            email: userEmail,
+            password: userPassword
+        };
+        let ref = isBusinessAccount ? restaurantsRef : usersRef;
+        ref.add(data)
+            .then(() => {
+                setUserName('');
+                setUserEmail('');
+                setUserPassword('');
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     const toggleSwitch = () => {
         setIsBusinessAccount(!isBusinessAccount);
-    }
+    };
 
     return (
         <View>
             <Card>
-                <Text>Welcome to Sabr</Text>
-                
+                {isBusinessAccount ? (
+                    <Text>
+                        Register your restuarant on Sabr to post discounts and
+                        promote business!
+                    </Text>
+                ) : (
+                    <Text>
+                        Join sabr to purchase restaurant credits at a discount!
+                    </Text>
+                )}
+
+                <Input
+                    placeholder="Name"
+                    autoComplete="false"
+                    clearButtonMode="while-editing"
+                    textContentType="username"
+                    onChangeText={(text) => setUserName(text)}
+                    value={userName}
+                />
                 <Input
                     placeholder="E-mail"
                     autoComplete="false"
@@ -65,27 +81,22 @@ export default function SignupScreen({ navigation }) {
                         title="Sign Up"
                         onPress={() => {
                             addUser();
-                            navigation.navigate('Login');
+                            if (isBusinessAccount) {
+                                navigation.navigate('BusinessLogin');
+                            } else {
+                                navigation.navigate('DinerLogin');
+                            }
                         }}
                     />
                     <View>
-                    <Text>Business account</Text>
-                    <Switch
-                    value={isBusinessAccount}
-                    onChange={toggleSwitch}
-                    />
+                        <Text>Business account</Text>
+                        <Switch
+                            value={isBusinessAccount}
+                            onChange={toggleSwitch}
+                        />
                     </View>
                 </View>
             </Card>
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-});
