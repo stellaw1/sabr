@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import {
+    StyleSheet,
+    View,
+    Text,
+    Switch
+} from 'react-native';
 import { firebase } from '../config';
-import { Button } from '@rneui/themed';
-
+import { Card, Input, Button } from '@rneui/themed';
 
 export default function SignupScreen({ navigation }) {
+    const [isBusinessAccount, setIsBusinessAccount] = React.useState(false);
     const [userEmail, setUserEmail] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const usersRef = firebase.firestore().collection('users');
@@ -25,33 +30,53 @@ export default function SignupScreen({ navigation }) {
                 })
                 .catch((err) => {
                     console.log(err);
-                })
+                });
         }
+    };
+
+    const toggleSwitch = () => {
+        setIsBusinessAccount(!isBusinessAccount);
     }
 
     return (
-        <View style={styles.container}>
-            <Button
-                title="Business Signup"
-                onPress={() => navigation.navigate('BusinessHome')}
-            />
-            <Button
-                title="Diner Signup"
-                onPress={() => navigation.navigate('DinerHome')}
-            />
-            <TextInput
-                placeholder={'Email'}
-                onChangeText={(text) => setUserEmail(text)}
-                value={userEmail}
-            />
-            <TextInput
-                placeholder={'Password'}
-                onChangeText={(text) => setUserPassword(text)}
-                value={userPassword}
-            />
-            <TouchableOpacity onPress={addUser}>
-                <Text>Add</Text>
-            </TouchableOpacity>
+        <View>
+            <Card>
+                <Text>Welcome to Sabr</Text>
+                
+                <Input
+                    placeholder="E-mail"
+                    autoComplete="false"
+                    clearButtonMode="while-editing"
+                    textContentType="username"
+                    onChangeText={(text) => setUserEmail(text)}
+                    value={userEmail}
+                />
+                <Input
+                    placeholder="Password"
+                    secureTextEntry={true}
+                    clearButtonMode="while-editing"
+                    textContentType="password"
+                    onChangeText={(text) => setUserPassword(text)}
+                    value={userPassword}
+                />
+
+                <View style={{ flexDirection: 'row' }}>
+                    <Button
+                        title="Sign Up"
+                        onPress={() => {
+                            addUser();
+                            navigation.navigate('Login');
+                        }}
+                    />
+                    <View>
+                    <Text>Business account</Text>
+                    <Switch
+                    value={isBusinessAccount}
+                    onChange={toggleSwitch}
+                    />
+                    </View>
+                </View>
+            </Card>
         </View>
     );
 }
