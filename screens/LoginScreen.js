@@ -36,14 +36,6 @@ export default function LoginScreen({ navigation }) {
                 title="Diner Login"
                 onPress={() => navigation.navigate('DinerHome')}
             />
-            <Button
-                title="Diner Purchase"
-                onPress={() => navigation.navigate('DinerPurchase')}
-            />
-            <Button
-                title="Diner Wallet"
-                onPress={() => navigation.navigate('DinerWallet')}
-            />
         </View>
     );
 };
