@@ -24,41 +24,71 @@ const data = [
 
 export default function DinerHomeScreen({ navigation }) {
     return (
-      <View style={styles.container}>
-        <SearchBar
+      <ScrollView>
+          <View style={styles.titleBox}>
+              <Text style={styles.title}>Welcome to Diner Home</Text>
+          </View>
+          <View style={styles.titleBox}>
+          <SearchBar
             placeholder="Search here"
             onPress={() => alert("onPress")}
             onChangeText={(text) => console.log(text)}
           />
+          </View>
           
-          <DinerCarousel data={data} /> 
-          <View style={styles.container} >
-              <Text>Welcome to Diner Home</Text>
+          <View style={styles.labelBox}>
+              <Text style={styles.label}>Up to 20% savings</Text>
           </View>
           <View style={styles.container} >
-              <Text>Restaurant Here</Text>
+            <DinerCarousel data={data} /> 
+          </View>
+
+          <View style={styles.labelBox}>
+              <Text style={styles.label}>Up to 15% savings</Text>
           </View>
           <View style={styles.container} >
-              <Text>Restaurant Here</Text>
+            <DinerCarousel data={data} /> 
+          </View>
+          <View style={styles.labelBox}>
+              <Text style={styles.label}>Up to 10% savings</Text>
           </View>
           <View style={styles.container} >
-              <Text>Restaurant Here</Text>
+            <DinerCarousel data={data} /> 
           </View>
-          <View style={styles.container} >
-              <Text>Restaurant Here</Text>
+          
+          
+          <View style={styles.titleBox}>
+              <Text style={styles.title}>More Savings Coming your way!</Text>
           </View>
-        </View>
+          
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 3,
+        padding: 10,
         // backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
     },
     searchbar:{
       backgroundColor: '#fff'
+    },
+    titleBox: {
+      padding: 15
+    },
+    
+    title: {
+      textAlign: "center",
+      fontSize: 20 
+    },
+    labelBox: {
+      padding: 8
+    },
+    label: {
+      fontSize: 18,
     }
+
 });
