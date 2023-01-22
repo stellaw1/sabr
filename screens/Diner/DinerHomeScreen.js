@@ -43,18 +43,18 @@ export default function DinerHomeScreen({ navigation }) {
             <DinerCarousel data={data} navigation={navigation} /> 
           </View>
 
-          {/* <View style={styles.labelBox}>
+          <View style={styles.labelBox}>
               <Text style={styles.label}>Up to 15% savings</Text>
           </View>
           <View style={styles.container} >
-            <DinerCarousel data={data} /> 
+            <DinerCarousel data={data} navigation={navigation} /> 
           </View>
           <View style={styles.labelBox}>
               <Text style={styles.label}>Up to 10% savings</Text>
           </View>
           <View style={styles.container} >
-            <DinerCarousel data={data} /> 
-          </View> */}
+            <DinerCarousel data={data} navigation={navigation} /> 
+          </View>
           
           
           <View style={styles.titleBox}>
