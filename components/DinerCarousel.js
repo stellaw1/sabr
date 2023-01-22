@@ -4,6 +4,9 @@ import { View, Text, StyleSheet, Dimensions, Image, ScrollView, useWindowDimensi
 import React, {useState} from 'react'
 import Animated, {useSharedValue, useAnimatedStyle, useAnimatedScrollHandler, interpolate} from 'react-native-reanimated'
 
+import { TouchableOpacity } from 'react-native'
+const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
+
 
 const DinerCarousel = ({data, navigation}) => {
     const [newData] = useState([
@@ -48,9 +51,12 @@ const DinerCarousel = ({data, navigation}) => {
                 }
                 return (
                     <View style={{width: SIZE}} key={index} > 
+                        <AnimatedTouchable onPress={() => navigation.navigate('DinerPurchase')}>
                         <Animated.View style={[styles.imagecontainer, style]} >
                             <Image source={item.image} style={styles.image} />
                         </Animated.View>
+                        </AnimatedTouchable>
+                        
                     </View>
                 );
                 })}
