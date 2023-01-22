@@ -29,15 +29,12 @@ export default function LoginScreen({ navigation }) {
 
     const validateLogin = () => {
         for (let i = 0; i < users.length; i++) {
-            if (
-                users[i].email == userEmail &&
-                users[i].password == userPassword
-            ) {
+            if (users[i].email == userEmail && users[i].password == userPassword) {
                 return true;
             }
-            return false;
         }
-    };
+        return false;
+    }
 
     return (
         <View>
@@ -67,7 +64,7 @@ export default function LoginScreen({ navigation }) {
                             if (validateLogin()) {
                                 navigation.navigate('BusinessHome');
                             } else {
-                                alert('Invalid credentials. ');
+                                alert("Invalid credentials. ");
                             }
                         }}
                     />
