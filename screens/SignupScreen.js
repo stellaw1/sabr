@@ -42,11 +42,7 @@ export default function SignupScreen({ navigation }) {
         <View>
             <Card>
                 <Text>Welcome to Sabr</Text>
-                <Text>Business account</Text>
-                <Switch
-                    value={isBusinessAccount}
-                    onChange={toggleSwitch}
-                />
+                
                 <Input
                     placeholder="E-mail"
                     autoComplete="false"
@@ -72,6 +68,13 @@ export default function SignupScreen({ navigation }) {
                             navigation.navigate('Login');
                         }}
                     />
+                    <View>
+                    <Text>Business account</Text>
+                    <Switch
+                    value={isBusinessAccount}
+                    onChange={toggleSwitch}
+                    />
+                    </View>
                 </View>
             </Card>
         </View>
