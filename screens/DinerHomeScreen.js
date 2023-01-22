@@ -2,8 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
 
 import SearchBar from "react-native-dynamic-search-bar";
-import CarouselCards from "../components/CarouselCards"
-import CarouselCardItem from "../components/CarouselCardItem"
 import DinerCarousel from "../components/DinerCarousel"
 const data = [
   {

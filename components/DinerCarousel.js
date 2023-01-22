@@ -2,6 +2,8 @@
 
 import { View, Text, StyleSheet, Dimensions, Image, ScrollView, useWindowDimensions } from "react-native"
 import React, {useState} from 'react'
+import Animated, {useSharedValue, useAnimatedStyle, useAnimatedScrollHandler, interpolate} from 'react-native-reanimated'
+
 
 const DinerCarousel = ({data}) => {
     const [newData] = useState([
@@ -13,25 +15,45 @@ const DinerCarousel = ({data}) => {
     
     const SIZE = width*0.7;
     const SPACER = (width - SIZE) / 2;
+    const x = useSharedValue(0);
+    const onScroll = useAnimatedScrollHandler({
+        onScroll: event => {
+            x.value = event.contentOffset.x;
+        }
+    }
+
+    )
+
     return ( 
-        <ScrollView horizontal
+        <Animated.ScrollView horizontal
         bounces={false}
         scrollEventThrottle={16}
         snapToInterval={SIZE}
-        decelerationRate='fast'>
-            {data.map((item, index) => {
+        decelerationRate="fast"
+        onScroll={onScroll}>
+            {newData.map((item, index) => {
+                const style = useAnimatedStyle(() =>{
+                    const scale = interpolate(
+                        x.value, 
+                        [(index-2)*SIZE, (index-1)*SIZE, index*SIZE ],
+                        [0.8, 1, 0.8],
+                    );
+                    return {
+                        transform: [{scale}]
+                    }
+                })
                 if (!item.image){
                     return <View style = {{width: SPACER}} key={index}/>;
                 }
                 return (
                     <View style={{width: SIZE}} key={index}>
-                        <View style={styles.imagecontainer}>
+                        <Animated.View style={[styles.imagecontainer, style]}>
                             <Image source={item.image} style={styles.image}/>
-                        </View>
+                        </Animated.View>
                     </View>
                 );
                 })}
-        </ScrollView>
+        </Animated.ScrollView>
     );
 };
 
