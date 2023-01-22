@@ -1,9 +1,33 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Input, Button, Card } from "@rneui/themed";
 
 export default function LoginScreen({ navigation }) {
     return (
-        <View style={styles.container}>
+        <View>
+            <Card>
+            <Text>
+                Welcome to Sabr
+            </Text>
+            <Input placeholder="E-mail" autoComplete='false'clearButtonMode='while-editing' textContentType='username'/>
+            <Input placeholder="Password" secureTextEntry={true} clearButtonMode='while-editing' textContentType='password'/>
+            
+            <View style={{ flexDirection: "row" }}>
+            <Button
+                title="Login"
+                onPress={() => navigation.navigate('Login')}
+            />
+            <Button
+                title="Sign Up"
+                onPress={() => navigation.navigate('Login')}
+            />
+            </View>
+            
+            </Card>
+
+
+
+            {/* this is for testing purposes only */}
             <Button
                 title="Business Login"
                 onPress={() => navigation.navigate('BusinessHome')}
@@ -22,13 +46,4 @@ export default function LoginScreen({ navigation }) {
             />
         </View>
     );
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center'
-    }
-});
+};
