@@ -5,7 +5,7 @@ import React, {useState} from 'react'
 import Animated, {useSharedValue, useAnimatedStyle, useAnimatedScrollHandler, interpolate} from 'react-native-reanimated'
 
 
-const DinerCarousel = ({data}) => {
+const DinerCarousel = ({data, navigation}) => {
     const [newData] = useState([
         {key: 'spacer-left'}, 
         ...data, 
@@ -30,7 +30,8 @@ const DinerCarousel = ({data}) => {
         scrollEventThrottle={16}
         snapToInterval={SIZE}
         decelerationRate="fast"
-        onScroll={onScroll}>
+        onScroll={onScroll}
+        >
             {newData.map((item, index) => {
                 const style = useAnimatedStyle(() =>{
                     const scale = interpolate(
@@ -46,9 +47,9 @@ const DinerCarousel = ({data}) => {
                     return <View style = {{width: SPACER}} key={index}/>;
                 }
                 return (
-                    <View style={{width: SIZE}} key={index}>
-                        <Animated.View style={[styles.imagecontainer, style]}>
-                            <Image source={item.image} style={styles.image}/>
+                    <View style={{width: SIZE}} key={index} > 
+                        <Animated.View style={[styles.imagecontainer, style]} >
+                            <Image source={item.image} style={styles.image} />
                         </Animated.View>
                     </View>
                 );

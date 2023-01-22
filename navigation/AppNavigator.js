@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BusinessHomeScreen from '../screens/Business/BusinessHomeScreen';
 import BusinessSetDiscountScreen from '../screens/Business/BusinessSetDiscountScreen';
 import LoginScreen from '../screens/LoginScreen';
-import SignupScreen from '../screens/SignupScreen';
+import SignupScreen from '../screens/Diner/DinerHomeScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import DinerHomeScreen from '../screens/Diner/DinerHomeScreen';
 import DinerPurchaseScreen from '../screens/Diner/DinerPurchaseScreen';
