@@ -3,13 +3,13 @@ import {
     StyleSheet,
     View,
     Text,
-    TextInput,
-    TouchableOpacity
+    Switch
 } from 'react-native';
 import { firebase } from '../config';
 import { Card, Input, Button } from '@rneui/themed';
 
 export default function SignupScreen({ navigation }) {
+    const [isBusinessAccount, setIsBusinessAccount] = React.useState(false);
     const [userEmail, setUserEmail] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const usersRef = firebase.firestore().collection('users');
@@ -34,10 +34,19 @@ export default function SignupScreen({ navigation }) {
         }
     };
 
+    const toggleSwitch = () => {
+        setIsBusinessAccount(!isBusinessAccount);
+    }
+
     return (
         <View>
             <Card>
                 <Text>Welcome to Sabr</Text>
+                <Text>Business account</Text>
+                <Switch
+                    value={isBusinessAccount}
+                    onChange={toggleSwitch}
+                />
                 <Input
                     placeholder="E-mail"
                     autoComplete="false"
