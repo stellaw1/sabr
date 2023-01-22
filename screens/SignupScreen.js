@@ -3,7 +3,7 @@ import { StyleSheet, View, Button, Text, TextInput, TouchableOpacity } from 'rea
 import { firebase } from '../config';
 
 
-export default function LoginScreen({ navigation }) {
+export default function SignupScreen({ navigation }) {
     const [userEmail, setUserEmail] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const usersRef = firebase.firestore().collection('users');
