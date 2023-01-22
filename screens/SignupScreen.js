@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Button, Text, TextInput, TouchableOpacity } from 'react-native';
+import Switch from 'react-native-switch-toggles';
 import { firebase } from '../config';
 
 
 export default function SignupScreen({ navigation }) {
+    const [isBusinessAccount, setIsBusinessAccount] = React.useState(false);
+
     const [userEmail, setUserEmail] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const usersRef = firebase.firestore().collection('users');
@@ -30,6 +33,25 @@ export default function SignupScreen({ navigation }) {
 
     return (
         <View style={styles.container}>
+            <Switch
+              size={40}
+              value={isBusinessAccount}
+              onChange={(value) => setIsBusinessAccount(value)}
+              activeTrackColor={'#6ab04c'}
+              inactiveTrackColor={'#eb4d4b'}
+              renderInactiveThumbIcon={() => (
+                <Text style={{ fontSize: 12, color: 'black' }}>💩</Text>
+              )}
+              renderActiveThumbIcon={() => (
+                <Text style={{ fontSize: 12, color: 'black' }}>🔥</Text>
+              )}
+              renderOffIndicator={() => (
+                <Text style={{ fontSize: 12, color: 'white' }}>Diner</Text>
+              )}
+              renderOnIndicator={() => (
+                <Text style={{ fontSize: 12, color: 'white' }}>Business</Text>
+              )}
+            />
             <Button
                 title="Business Signup"
                 onPress={() => navigation.navigate('BusinessHome')}
