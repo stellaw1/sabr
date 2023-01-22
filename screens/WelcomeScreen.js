@@ -9,8 +9,12 @@ export default function WelcomScreen({ navigation }) {
         <View style={styles.container}>
             <Logo />
             <Button
-                title="Login"
-                onPress={() => navigation.navigate('Login')}
+                title="Business Login"
+                onPress={() => navigation.navigate('BusinessLogin')}
+            />
+            <Button
+                title="Diner Login"
+                onPress={() => navigation.navigate('DinerLogin')}
             />
             <Button
                 title="Signup"

@@ -1,16 +1,16 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { ThemeProvider, createTheme } from '@rneui/themed';
 
 import BusinessHomeScreen from '../screens/Business/BusinessHomeScreen';
 import BusinessSetDiscountScreen from '../screens/Business/BusinessSetDiscountScreen';
-import LoginScreen from '../screens/LoginScreen';
+import BusinessLoginScreen from '../screens/Business/BusinessLoginScreen';
+import DinerLoginScreen from '../screens/Diner/DinerLoginScreen';
 import SignupScreen from '../screens/SignupScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import DinerHomeScreen from '../screens/Diner/DinerHomeScreen';
 import DinerPurchaseScreen from '../screens/Diner/DinerPurchaseScreen';
 import DinerWalletScreen from '../screens/Diner/DinerWalletScreen';
-
-import { ThemeProvider, createTheme } from '@rneui/themed';
 
 const SabrTheme = createTheme({
     components: {
@@ -31,7 +31,14 @@ export default AppNavigator = () => {
             <NavigationContainer>
                 <Stack.Navigator>
                     <Stack.Screen name="Welcome" component={WelcomeScreen} />
-                    <Stack.Screen name="Login" component={LoginScreen} />
+                    <Stack.Screen
+                        name="BusinessLogin"
+                        component={BusinessLoginScreen}
+                    />
+                    <Stack.Screen
+                        name="DinerLogin"
+                        component={DinerLoginScreen}
+                    />
                     <Stack.Screen name="Signup" component={SignupScreen} />
                     <Stack.Screen
                         name="BusinessHome"

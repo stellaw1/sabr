@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, View, Text } from 'react-native';
-import { firebase } from '../config';
+import { View, Text } from 'react-native';
+import { firebase } from '../../config';
 import { Card, Input, Button } from '@rneui/themed';
 
-export default function LoginScreen({ navigation }) {
+export default function DinerLoginScreen({ navigation }) {
     const [userEmail, setUserEmail] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const [users, setUsers] = useState([]);
@@ -42,7 +42,7 @@ export default function LoginScreen({ navigation }) {
     return (
         <View>
             <Card>
-                <Text>Welcome to Sabr</Text>
+                <Text>Dine with Sabr</Text>
                 <Input
                     placeholder="E-mail"
                     autoComplete="false"
@@ -65,7 +65,7 @@ export default function LoginScreen({ navigation }) {
                         title="Login"
                         onPress={() => {
                             if (validateLogin()) {
-                                navigation.navigate('BusinessHome');
+                                navigation.navigate('DinerHome');
                             } else {
                                 alert('Invalid credentials. ');
                             }
@@ -73,25 +73,6 @@ export default function LoginScreen({ navigation }) {
                     />
                 </View>
             </Card>
-
-            {/* this is for testing purposes only */}
-            <Button
-                title="Business Login"
-                onPress={() => navigation.navigate('BusinessHome')}
-            />
-            <Button
-                title="Diner Login"
-                onPress={() => navigation.navigate('DinerHome')}
-            />
-            <FlatList
-                data={users}
-                renderItem={({ item }) => (
-                    <View>
-                        <Text>{item.name}</Text>
-                        <Text>{item.discount}</Text>
-                    </View>
-                )}
-            />
         </View>
     );
 }
