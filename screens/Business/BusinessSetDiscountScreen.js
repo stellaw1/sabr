@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { firebase } from '../../config';
+import { Button } from '@rneui/themed';
 
 
 export default function BusinessSetDiscountScreen() {

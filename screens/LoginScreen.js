@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, View, Button, Text } from 'react-native';
+import { FlatList, View, Text } from 'react-native';
 import { firebase } from '../config';
+import { Card, Input, Button } from '@rneui/themed';
 
 
 export default function LoginScreen({ navigation }) {
