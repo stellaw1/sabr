@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Button, Text, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { firebase } from '../config';
+import { Button } from '@rneui/themed';
 
 
 export default function SignupScreen({ navigation }) {
