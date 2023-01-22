@@ -5,6 +5,11 @@ export default function BusinessHomeScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <Text>Welcome to Business Home</Text>
+
+            <Button
+                title="Set discount"
+                onPress={() => navigation.navigate('SetDiscount')}
+            />
         </View>
     );
 }
