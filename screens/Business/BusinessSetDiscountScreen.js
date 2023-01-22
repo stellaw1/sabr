@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { firebase } from '../../config';
 import { Button } from '@rneui/themed';
 
-
 export default function BusinessSetDiscountScreen() {
     const [discount, setDiscount] = useState(0);
     const discountsRef = firebase.firestore().collection('discounts');
@@ -11,7 +10,7 @@ export default function BusinessSetDiscountScreen() {
     const addDiscount = () => {
         if (discount && discount != 0) {
             const timestamp = firebase.firestore.FieldValue.serverTimestamp();
-            
+
             const data = {
                 createdAt: timestamp,
                 name: 'dummy restaurant name',
@@ -25,24 +24,21 @@ export default function BusinessSetDiscountScreen() {
                 })
                 .catch((err) => {
                     console.log(err);
-                })
+                });
         }
-    }
+    };
 
     return (
         <View style={styles.container}>
             <Text>Set discount: </Text>
-            <TextInput 
-                keyboardType='numeric'
+            <TextInput
+                keyboardType="numeric"
                 maxLength={3}
                 onChangeText={setDiscount}
                 value={discount}
-                placeholder="Set discount" 
+                placeholder="Set discount"
             />
-            <Button
-                title="Send"
-                onPress={addDiscount}
-            />
+            <Button title="Send" onPress={addDiscount} />
         </View>
     );
 }
